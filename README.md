@@ -8,7 +8,6 @@ Welcome to the House Price Prediction Project! This application utilizes machine
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -72,10 +71,6 @@ To get started with this project, follow these steps:
 1. Open your web browser and navigate to `http://localhost:8501`.
 2. Enter the details of the house (number of bedrooms, bathrooms, square footage, lot size, age of house, proximity to city center, neighborhood quality).
 3. Click on the "Predict!" button to get the estimated house price.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
