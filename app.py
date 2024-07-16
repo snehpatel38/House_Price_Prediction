@@ -38,20 +38,22 @@ if nav_selection == 'About Project':
 
     # Styling and input fields for prediction
     st.subheader('House Price Prediction')
+    st.divider()
     st.write("Enter the details below and click 'Predict!'")
-
+    st.divide()
     # Inputs for the features
     bedrooms = st.number_input('Number of Bedrooms', min_value=0, value=0)
     bathrooms = st.number_input('Number of Bathrooms', min_value=0, value=0)
-    square_footage = st.number_input('Square Footage', min_value=0, value=2000)
+    square_footage = st.number_input('Square Footage (800-3499)', min_value=0, value=2000)
     #lot_size = st.number_input('Lot Size', min_value=0, value=0)
     age_of_house = st.number_input('Age of House', min_value=0, value=0)
     proximity_to_city_center = st.number_input('Proximity to City Center (miles)', min_value=0, value=0)
     neighborhood_quality = st.number_input('Neighborhood Quality (1-10)', min_value=0, value=0)
-
-    # Prediction button
-    predict_button = st.button('Predict!')
-
+    st.divider()
+     # Centering the Predict button
+    col1, col2, col3 = st.columns([1, 3, 1])
+    with col2:
+        predict_button = st.button('Predict!')
     if predict_button:
         st.balloons()  # Fun element to show prediction
 
@@ -66,11 +68,18 @@ if nav_selection == 'About Project':
 elif nav_selection == 'About Internship':
     st.header(f"{sidebar_items['About Internship']['icon']} {sidebar_items['About Internship']['name']}")
     st.markdown("""
-    Describe your internship experience, what you've learned, and how it relates to this project.
+    I recently completed a focused 15-day internship at INFOLABZ IT SERVICES PVT LTD in the field of data analysis and machine learning. Throughout the internship, I engaged deeply with various aspects of these fields, gaining hands-on experience in practical applications such as:
+
+    -Introduction to Machine Learning and its fundamentals.
+    -Fetching and analyzing data from APIs, including Bitcoin and Covid APIs.
+    -Utilizing Pandas for data manipulation and analysis, including storing data to Excel and reading from Excel files.
+    -Data visualization techniques using tools like Excel and Python for creating graphs (bargraphs, linegraphs, pie charts, scatter graphs).
+    -Implementation of machine learning algorithms, starting with Linear Regression and progressing to Multiple Linear Regression.
+    -Project work involving real-world datasets and applying learned techniques for data analysis and prediction."
     """)
 
 elif nav_selection == 'About Me':
     st.header(f"{sidebar_items['About Me']['icon']} {sidebar_items['About Me']['name']}")
     st.markdown("""
-    Introduce yourself, your background, and your interests related to this project.
+    Hello! I'm Sneh Patel, currently pursuing Computer Engineering at Saffrony Institute Of Technology. 
     """)
