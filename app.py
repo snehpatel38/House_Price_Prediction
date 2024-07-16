@@ -1,12 +1,12 @@
 import streamlit as st
-import bz2file as bz2
+import bz2
 import pickle
 import numpy as np
 
 # Define decompression function
 def decompress_pickle(file):
-    data = bz2.BZ2File(file, 'rb')
-    data = pickle.load(data)
+    with bz2.BZ2File(file, 'rb') as f:
+        data = pickle.load(f)
     return data
 
 # Load the compressed model
@@ -24,7 +24,7 @@ st.divider()
 bedrooms = st.number_input('Number of bedrooms', min_value=0, value=0)
 bathrooms = st.number_input('Number of bathrooms', min_value=0, value=0)
 square_footage = st.number_input('Square footage', min_value=0, value=2000)
-lot_size = st.number_input('Lot size', min_value=0, value=0)
+#lot_size = st.number_input('Lot size', min_value=0, value=0)
 age_of_house = st.number_input('Age of house', min_value=0, value=0)
 proximity_to_city_center = st.number_input('Proximity to city center', min_value=0, value=0)
 neighborhood_quality = st.number_input('Neighborhood quality', min_value=0, value=0)
@@ -32,7 +32,7 @@ neighborhood_quality = st.number_input('Neighborhood quality', min_value=0, valu
 st.divider()
 
 # Create the input array for prediction
-X = [[bedrooms, bathrooms, square_footage, lot_size, age_of_house, proximity_to_city_center, neighborhood_quality]]
+X = [[bedrooms, bathrooms, square_footage, age_of_house, proximity_to_city_center, neighborhood_quality]]
 
 predict_button = st.button('Predict!')
 
