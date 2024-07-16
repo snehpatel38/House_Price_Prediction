@@ -12,43 +12,66 @@ def decompress_pickle(file):
 # Load the compressed model
 model = decompress_pickle('model.pbz2')
 
+# Define icons for sidebar navigation
+sidebar_icons = {
+    'About Project': '🏠',
+    'About Internship': '👩‍🎓',
+    'About Me': '🧑‍💻'
+}
+
+# Page title and sidebar sections
 st.title('House Price Prediction Project')
 
-st.divider()
+st.sidebar.title('Navigation')
 
-st.write("This app uses machine learning to predict house prices based on various features of the house. Enter the details below and click 'Predict!'")
+# Sidebar navigation with icons
+nav_selection = st.sidebar.radio('',
+    list(sidebar_icons.keys()),
+    format_func=lambda x: sidebar_icons[x])
 
-st.divider()
+# Different sections
+if nav_selection == 'About Project':
+    st.header('About the Project')
+    st.markdown("""
+    Explain briefly what your house price prediction project aims to achieve.
+    """)
+
+elif nav_selection == 'About Internship':
+    st.header('About the Internship')
+    st.markdown("""
+    Describe your internship experience, what you've learned, and how it relates to this project.
+    """)
+
+elif nav_selection == 'About Me':
+    st.header('About Me')
+    st.markdown("""
+    Introduce yourself, your background, and your interests related to this project.
+    """)
+
+# Styling and input fields for prediction
+st.subheader('House Price Prediction')
+st.write("Enter the details below and click 'Predict!'")
 
 # Inputs for the features
-bedrooms = st.number_input('num_bedrooms', min_value=0, value=0)
-bathrooms = st.number_input('num_bathrooms', min_value=0, value=0)
-square_footage = st.number_input('square_footage', min_value=0, value=2000)
-#lot_size = st.number_input('Lot size', min_value=0, value=0)
-age_of_house = st.number_input('age_of_house', min_value=0, value=0)
-proximity_to_city_center = st.number_input('proximity_to_city_center', min_value=0, value=0)
-neighborhood_quality = st.number_input('neighborhood_quality', min_value=0, value=0)
+bedrooms = st.number_input('Number of Bedrooms', min_value=0, value=0)
+bathrooms = st.number_input('Number of Bathrooms', min_value=0, value=0)
+square_footage = st.number_input('Square Footage', min_value=0, value=2000)
+lot_size = st.number_input('Lot Size', min_value=0, value=0)
+age_of_house = st.number_input('Age of House', min_value=0, value=0)
+proximity_to_city_center = st.number_input('Proximity to City Center (miles)', min_value=0, value=0)
+neighborhood_quality = st.number_input('Neighborhood Quality (1-10)', min_value=0, value=0)
 
-st.divider()
-
-# Create the input array for prediction
-X = [[bedrooms, bathrooms, square_footage, age_of_house, proximity_to_city_center, neighborhood_quality]]
-
+# Prediction button
+st.subheader('Predict House Price')
 predict_button = st.button('Predict!')
 
 if predict_button:
-    st.balloons()
+    st.balloons()  # Fun element to show prediction
 
-    # Convert the input to a numpy array
+    # Create the input array for prediction
+    X = [[bedrooms, bathrooms, square_footage, lot_size, age_of_house, proximity_to_city_center, neighborhood_quality]]
     X_array = np.array(X)
 
-    # Debugging: Print out the shape of the input and the expected number of features
-    st.write(f"Input shape: {X_array.shape}")
-    st.write(f"Expected number of features: {model.n_features_in_}")
-
-    # Ensure the input is in the correct shape
-    try:
-        prediction = model.predict(X_array)
-        st.write(f'The predicted price of the house is ${np.round(prediction[0], 2)}')
-    except ValueError as e:
-        st.error(f"Error during prediction: {e}")
+    # Prediction
+    prediction = model.predict(X_array)
+    st.write(f'The predicted price of the house is ${np.round(prediction[0], 2)}')
