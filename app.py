@@ -44,7 +44,7 @@ if nav_selection == 'About Project':
     bedrooms = st.number_input('Number of Bedrooms', min_value=0, value=0)
     bathrooms = st.number_input('Number of Bathrooms', min_value=0, value=0)
     square_footage = st.number_input('Square Footage', min_value=0, value=2000)
-    lot_size = st.number_input('Lot Size', min_value=0, value=0)
+    #lot_size = st.number_input('Lot Size', min_value=0, value=0)
     age_of_house = st.number_input('Age of House', min_value=0, value=0)
     proximity_to_city_center = st.number_input('Proximity to City Center (miles)', min_value=0, value=0)
     neighborhood_quality = st.number_input('Neighborhood Quality (1-10)', min_value=0, value=0)
@@ -56,7 +56,7 @@ if nav_selection == 'About Project':
         st.balloons()  # Fun element to show prediction
 
         # Create the input array for prediction
-        X = [[bedrooms, bathrooms, square_footage, lot_size, age_of_house, proximity_to_city_center, neighborhood_quality]]
+        X = [[bedrooms, bathrooms, square_footage, age_of_house, proximity_to_city_center, neighborhood_quality]]
         X_array = np.array(X)
 
         # Prediction
