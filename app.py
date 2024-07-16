@@ -65,16 +65,13 @@ if nav_selection == 'About Project':
 
 elif nav_selection == 'About Internship':
     st.header(f"{sidebar_items['About Internship']['icon']} {sidebar_items['About Internship']['name']}")
-    st.divider()
     st.markdown("""
-    I recently completed a focused 15-day internship at INFOLABZ IT SERVICES PVT LTD in the field of data analysis and machine learning. Throughout the internship, I engaged deeply with various aspects of these fields, gaining hands-on experience in practical applications such as:
-
-    -Introduction to Machine Learning and its fundamentals.
-    -Fetching and analyzing data from APIs, including Bitcoin and Covid APIs.
-    -Utilizing Pandas for data manipulation and analysis, including storing data to Excel and reading from Excel files.
-    -Data visualization techniques using tools like Excel and Python for creating graphs (bargraphs, linegraphs, pie charts, scatter graphs).
-    -Implementation of machine learning algorithms, starting with Linear Regression and progressing to Multiple Linear Regression.
-    -Project work involving real-world datasets and applying learned techniques for data analysis and prediction."
+    - Completed a 15-day internship focused on data analysis and machine learning at INFOLABZ IT SERVICES PVT LTD.
+    - Gained practical experience in data fetching from APIs, including Bitcoin and Covid APIs.
+    - Applied data analysis techniques using Pandas, including storing and reading data from Excel.
+    - Developed skills in data visualization with various graphs (bargraphs, linegraphs, pie charts, scatter graphs).
+    - Implemented machine learning algorithms such as Linear Regression and Multiple Linear Regression.
+    - Successfully applied learned concepts to real-world project implementations.
     """)
 
 elif nav_selection == 'About Me':
