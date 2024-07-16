@@ -60,8 +60,10 @@ if nav_selection == 'About Project':
         X_array = np.array(X)
 
         # Prediction
-        prediction = model.predict(X_array)
-        st.write(f'The predicted price of the house is ${np.round(prediction[0], 2)}')
+        prediction_usd = model.predict(X_array)[0]
+        prediction_inr = prediction_usd * 83
+
+        st.write(f'The predicted price of the house is ₹ {np.round(prediction_inr, 2)} INR')
 
 elif nav_selection == 'About Internship':
     st.header(f"{sidebar_items['About Internship']['icon']} {sidebar_items['About Internship']['name']}")
