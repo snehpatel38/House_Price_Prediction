@@ -20,7 +20,7 @@ sidebar_items = {
 }
 
 # Page title and sidebar sections
-st.title('House Price Prediction Project')
+#st.title('House Price Prediction Project')
 
 st.sidebar.title('Navigation')
 
@@ -38,9 +38,9 @@ if nav_selection == 'About Project':
 
     # Styling and input fields for prediction
     st.subheader('House Price Prediction')
-    st.divider()
+    
     st.write("Enter the details below and click 'Predict!'")
-    st.divider()
+    
     # Inputs for the features
     bedrooms = st.number_input('Number of Bedrooms', min_value=0, value=0)
     bathrooms = st.number_input('Number of Bathrooms', min_value=0, value=0)
@@ -49,11 +49,9 @@ if nav_selection == 'About Project':
     age_of_house = st.number_input('Age of House', min_value=0, value=0)
     proximity_to_city_center = st.number_input('Proximity to City Center (miles)', min_value=0, value=0)
     neighborhood_quality = st.number_input('Neighborhood Quality (1-10)', min_value=0, value=0)
-    st.divider()
-     # Centering the Predict button
-    col1, col2, col3 = st.columns([1, 3, 1])
-    with col2:
-        predict_button = st.button('Predict!')
+    
+    # Predict button
+    predict_button = st.button('Predict!')
     if predict_button:
         st.balloons()  # Fun element to show prediction
 
