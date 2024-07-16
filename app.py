@@ -40,7 +40,7 @@ if nav_selection == 'About Project':
     st.subheader('House Price Prediction')
     st.divider()
     st.write("Enter the details below and click 'Predict!'")
-    st.divide()
+    st.divider()
     # Inputs for the features
     bedrooms = st.number_input('Number of Bedrooms', min_value=0, value=0)
     bathrooms = st.number_input('Number of Bathrooms', min_value=0, value=0)
@@ -67,6 +67,7 @@ if nav_selection == 'About Project':
 
 elif nav_selection == 'About Internship':
     st.header(f"{sidebar_items['About Internship']['icon']} {sidebar_items['About Internship']['name']}")
+    st.divider()
     st.markdown("""
     I recently completed a focused 15-day internship at INFOLABZ IT SERVICES PVT LTD in the field of data analysis and machine learning. Throughout the internship, I engaged deeply with various aspects of these fields, gaining hands-on experience in practical applications such as:
 
@@ -80,6 +81,7 @@ elif nav_selection == 'About Internship':
 
 elif nav_selection == 'About Me':
     st.header(f"{sidebar_items['About Me']['icon']} {sidebar_items['About Me']['name']}")
+    st.divider()
     st.markdown("""
     Hello! I'm Sneh Patel, currently pursuing Computer Engineering at Saffrony Institute Of Technology. 
     """)
