@@ -13,7 +13,7 @@ def decompress_pickle(file):
 model = decompress_pickle('model.pbz2')
 
 # Conversion rate from USD to INR (example rate, replace with actual rate if available)
-usd_to_inr_rate = 83.59  # Example rate
+#usd_to_inr_rate = 83.59  # Example rate
 
 # Define icons and names for sidebar navigation
 sidebar_items = {
@@ -33,8 +33,8 @@ nav_selection = st.sidebar.radio('',
     format_func=lambda x: f"{sidebar_items[x]['icon']} {sidebar_items[x]['name']}")
 
 # Function to format price in lakhs
-def format_price_lakhs(price_inr):
-    return price_inr / 1e5  # 1 lakh = 100,000 INR
+#def format_price_lakhs(price_inr):
+#   return price_inr / 1e5  # 1 lakh = 100,000 INR
     
 # Different sections
 if nav_selection == 'About Project':
@@ -71,9 +71,9 @@ if nav_selection == 'About Project':
         prediction_inr = prediction_usd * 83
 
          # Format price in lakhs
-        prediction_lakhs = format_price_lakhs(prediction_inr)
+        #prediction_lakhs = format_price_lakhs(prediction_inr)
 
-        st.write(f'The predicted price of the house is ₹ {np.round(prediction_lakhs, 2)} lakhs')
+        st.write(f'The predicted price of the house is ₹ {np.round(prediction_inr, 2)} INR')
         
 elif nav_selection == 'About Internship':
     st.header(f"{sidebar_items['About Internship']['icon']} {sidebar_items['About Internship']['name']}")
