@@ -12,6 +12,9 @@ def decompress_pickle(file):
 # Load the compressed model
 model = decompress_pickle('model.pbz2')
 
+# Conversion rate from USD to INR (example rate, replace with actual rate if available)
+usd_to_inr_rate = 83.59  # Example rate
+
 # Define icons and names for sidebar navigation
 sidebar_items = {
     'About Project': {'icon': '🏠', 'name': 'Project'},
@@ -29,6 +32,10 @@ nav_selection = st.sidebar.radio('',
     list(sidebar_items.keys()),
     format_func=lambda x: f"{sidebar_items[x]['icon']} {sidebar_items[x]['name']}")
 
+# Function to format price in lakhs
+def format_price_lakhs(price_inr):
+    return price_inr / 1e5  # 1 lakh = 100,000 INR
+    
 # Different sections
 if nav_selection == 'About Project':
     st.header(f"{sidebar_items['About Project']['icon']} {sidebar_items['About Project']['name']}")
@@ -63,8 +70,11 @@ if nav_selection == 'About Project':
         prediction_usd = model.predict(X_array)[0]
         prediction_inr = prediction_usd * 83
 
-        st.write(f'The predicted price of the house is ₹ {np.round(prediction_inr, 2)} INR')
+         # Format price in lakhs
+        prediction_lakhs = format_price_lakhs(prediction_inr)
 
+        st.write(f'The predicted price of the house is ₹ {np.round(prediction_lakhs, 2)} lakhs')
+        
 elif nav_selection == 'About Internship':
     st.header(f"{sidebar_items['About Internship']['icon']} {sidebar_items['About Internship']['name']}")
     st.markdown("""
