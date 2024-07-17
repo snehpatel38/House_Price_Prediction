@@ -69,8 +69,8 @@ if nav_selection == 'About Project':
         price_inr = price_usd * usd_to_inr_rate
         price_lakhs = format_price_lakhs(price_inr)
         
-        #st.write(f'The predicted price of the house is ${price_usd} (USD)')
-        #st.write(f'In Indian Rupees, the predicted price is ₹{np.round(price_inr, 2)} (INR)')
+        st.write(f'The predicted price of the house is ${price_usd} (USD)')
+        st.write(f'In Indian Rupees, the predicted price is ₹{np.round(price_inr, 2)} (INR)')
         st.write(f'Which is approximately ₹{np.round(price_lakhs, 2)} Lakhs (INR)')
         
 elif nav_selection == 'About Internship':
