@@ -70,8 +70,8 @@ if nav_selection == 'About Project':
         price_lakhs = format_price_lakhs(price_inr)
         
         st.write(f'The predicted price of the house is ${price_usd} (USD)')
-        st.write(f'In Indian Rupees, the predicted price is ₹{np.round(price_inr, 2)} (INR)')
-        st.write(f'Which is approximately ₹{np.round(price_lakhs, 2)} Lakhs (INR)')
+        #st.write(f'In Indian Rupees, the predicted price is ₹{np.round(price_inr, 2)} (INR)')
+        #st.write(f'Which is approximately ₹{np.round(price_lakhs, 2)} Lakhs (INR)')
         
 elif nav_selection == 'About Internship':
     st.header(f"{sidebar_items['About Internship']['icon']} {sidebar_items['About Internship']['name']}")
